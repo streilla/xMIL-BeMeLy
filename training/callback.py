@@ -34,17 +34,26 @@ class Callback:
     @staticmethod
     def compute_auc(lbl, prob_model, lbl_names=None):
         lbl = lbl.cpu().numpy()
-        prob_model = prob_model[:, -1, :].detach().cpu().numpy()  # probability of class 1
+        n_classes = len(np.unique(lbl))
         if lbl_names is None:
             auc_targets = [f"auc_target_{i}" for i in range(lbl.shape[-1])]
         else:
             assert len(lbl_names) == lbl.shape[-1]
             auc_targets = [f"auc{x.split('label', 1)[1]}" for x in lbl_names]
         aucs = {}
-        for i, target in zip(range(lbl.shape[-1]), auc_targets):
-            curr_lbl = lbl[:, i]
-            curr_pred = prob_model[:, i]
-            aucs[target] = roc_auc_score(curr_lbl, curr_pred)
+        if n_classes > 2:
+            prob_model = prob_model.squeeze().detach().cpu().numpy()
+            for i, target in zip(range(lbl.shape[-1]), auc_targets):
+                curr_lbl = lbl[:, i]
+                oh_encoded = [[1 if i == l else 0 for i in range(n_classes)] for l in curr_lbl]
+                oh_encoded = np.array(oh_encoded)
+                aucs[target] = roc_auc_score(oh_encoded, prob_model, multi_class='ovr')
+        else:
+            prob_model = prob_model[:, -1, :].detach().cpu().numpy()  # probability of class 1
+            for i, target in zip(range(lbl.shape[-1]), auc_targets):
+                curr_lbl = lbl[:, i]
+                curr_pred = prob_model[:, i]
+                aucs[target] = roc_auc_score(curr_lbl, curr_pred)
         return aucs
 
     @staticmethod
