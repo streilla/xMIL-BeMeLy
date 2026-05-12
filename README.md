@@ -41,7 +41,7 @@ Oliver Buchstab, Andreas Mock, Frederick Klauschen, Klaus-Robert Müller </em></
 ## Installation
 For installation:
 - Create an environment: ```conda create -n "xMIL-BeMeLy" python=3.9```, and activate it ```conda activate xMIL-BeMeLy```
-- Cloning: ```git clone https://github.com/mahmoodlab/trident.git && cd xMIL-BeMeLy```
+- Cloning: ```git clone https://github.com/streilla/xMIL-BeMeLy.git && cd xMIL-BeMeLy```
 - Local installation: ```bash install_requirements.sh```
 
 ## Downloading the validation datasets
