@@ -1,4 +1,4 @@
-xMIL: Insightful Explanations for Multiple Instance Learning in Histopathology
+A 3-class classifier to identify metastatic and lymphomatous lymph nodes
 ==========
 
 <details>
@@ -6,7 +6,7 @@ xMIL: Insightful Explanations for Multiple Instance Learning in Histopathology
   <b>A 3-class classifier to identify metastatic and lymphomatous lymph nodes</b>. EMBC 2026.
   <br><em>Stéphane Treillard, Robin Schwob, Raphaëlle Duprez-Paumier, Philippe Rochaix, Charlotte Syrykh, Camille Laurent, Pierre Brousset, Sandrine Mouysset, Nadia Amara, Sylvain Cussat-Blanc, Camille Franchet</em></br>
   
-  This repo is forked from https://github.com/bifold-pathomics/xMIL, from the wonderful:
+  This repo is forked from https://github.com/bifold-pathomics/xMIL. If xMIL-LRP is useful for your work, please cite the wonderful original article:
   <b>xMIL: Insightful Explanations for Multiple Instance Learning in Histopathology</b>. NeurIPS 2024.
   <br><em>Julius Hense*, Mina Jamshidi Idaji*, Oliver Eberle, Thomas Schnake, Jonas Dippel, Laure Ciernik, 
 Oliver Buchstab, Andreas Mock, Frederick Klauschen, Klaus-Robert Müller </em></br>
